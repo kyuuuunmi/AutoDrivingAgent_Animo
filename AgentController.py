@@ -24,13 +24,32 @@ class AgentController:
     
             print("flag-------------")
             check=flag[1::2]
-            front = check[0]
+            right = check[0]
             left = check[1]
             #right = check[2]
-            right = 1
+            #right = 1
             
             print("check-------------")
             print(check)
+            
+            if left == 1 and right == 1:
+                #stop
+                print("[AgentController] danger in front\n")
+                self.motor.driveBackward()                
+            elif left == 1:
+                #right
+                print("[AgentController] danger in left\n")
+                self.motor.driveRight()
+            elif right == 1:
+                #left
+                print("[AgentController] danger in right\n")
+                self.motor.driveLeft()
+            else:
+                #front
+                print("[AgentController] gogo\n")
+                self.motor.driveForward()
+
+'''
             if front == 1 and left == 1 and right == 1:
                 #stop
                 print("[AgentController] danger in front\n")
@@ -55,3 +74,4 @@ class AgentController:
                 #front
                 print("[AgentController] gogo\n")
                 self.motor.driveForward()
+'''

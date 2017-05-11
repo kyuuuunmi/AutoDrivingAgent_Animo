@@ -32,16 +32,21 @@ class MotorController:
 
         def driveRight(self):
                 print("Right! ")
-                #for i in range(self.speedValue, 255):
-                self.myMotorL.setSpeed(70)
-                self.speedSetup()
+              	self.myMotorL.run(Adafruit_MotorHAT.FORWARD)
+                self.myMotorR.run(Adafruit_MotorHAT.FORWARD)
+                for i in range(self.speedValue, 200):
+			self.myMotorL.setSpeed(i)
+                self.speedSetup(70)
 
         def driveLeft(self):
-               print("Left! ")
-               for i in range(self.speedValue, 200):
-                       self.myMotorR.setSpeed(i)
-                       time.sleep(0.005)
-               self.speedSetup()
+		print("Left! ")
+                #for i in range(self.speedValue, 200):
+	        self.myMotorL.run(Adafruit_MotorHAT.FORWARD)
+                self.myMotorR.run(Adafruit_MotorHAT.FORWARD)
+		for i in range(self.speedValue, 300):
+                	self.myMotorR.setSpeed(i)
+                #time.sleep(0.005)
+                self.speedSetup(70)
 
         def driveBackward(self):
                 print("Backward! ")
@@ -54,9 +59,9 @@ class MotorController:
                 self.myMotorR.run(Adafruit_MotorHAT.RELEASE)
                 time.sleep(1.0)
                 
-        def speedSetup(self):
-                self.myMotorL.setSpeed(self.speedValue)
-                self.myMotorR.setSpeed(self.speedValue)
+        def speedSetup(self, val):
+                self.myMotorL.setSpeed(val)
+                self.myMotorR.setSpeed(val)
                 
         def speedUpControl(self):
                 print("\tSpeed up...")

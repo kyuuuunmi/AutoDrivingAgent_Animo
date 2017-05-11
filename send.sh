@@ -37,7 +37,7 @@ python MainController.py &
 #echo "!!!!!!!!!!!"
 #fg %1
 #echo "@@@@@@@@@@@"
-curl -i -H "Accept: application/json" -H "Content-Type: application/json" http://52.78.63.210:8008/darknet2
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" http://52.78.63.210:8008/darknet
 
 while true
 do
